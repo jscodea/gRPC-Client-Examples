@@ -1,0 +1,19 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GRPC_Example_Client.Protos";
+
+package bidirectionalstreaming;
+
+service BidirectionalStreaming {
+  rpc SendMessage (stream ClientToServerMsg) returns (stream ServerToClientMsg);
+}
+
+message ClientToServerMsg {
+  string content = 1;
+  string info = 2;
+}
+
+message ServerToClientMsg {
+  string content = 1;
+  string info = 2;
+}
